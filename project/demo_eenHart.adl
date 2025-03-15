@@ -1,0 +1,45 @@
+CONTEXT MensEnHart
+
+CONCEPT Hart "laksjf;akfjda"
+RELATION hoortBij [Hart * Mens] [TOT,UNI,INJ,SUR] 
+
+
+POPULATION hoortBij CONTAINS
+  [ ("h1","Jan")
+  , ("h2","h2")
+  , ("h2","Marie")
+  , ("h3","Piet")
+  ]
+
+--POPULATION Mens CONTAINS [ "Voldemort" ]
+INTERFACE Hoofdmenu : "_SESSION" cRud
+BOX <TABS>
+     [ Mensen : V[SESSION*Mens]         CRuD
+       BOX <TABLE>
+                [ "Mens" : I[Mens]                     cRud
+                , "Trotse eigenaar van" : hoortBij~    CRUD
+                ]
+     , Harten : V[SESSION*Hart]         CRuD
+       BOX <TABLE>
+                [ "Hart" : I                           cRud
+                , "hart dat hier bij hoort" : hoortBij LINKTO INTERFACE Mens 
+                ]
+     ]
+
+INTERFACE Mens : I[Mens] CRuD
+BOX <FORM>
+   [ Mens : I
+   , Hart : hoortBij~ CRUD
+   ]
+
+INTERFACE Hart : I[Hart] CRuD
+BOX <FORM>
+   [ sasdfa : I
+   , Hart : hoortBij CRUD
+   ]
+
+
+
+
+
+ENDCONTEXT

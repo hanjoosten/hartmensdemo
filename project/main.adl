@@ -2,7 +2,7 @@ CONTEXT Main IN ENGLISH
 -- This is the main script. Go ahead and modify it to your likings!
 
 -- The example from the tutorial is included as a demo:
-INCLUDE "example.adl"
+INCLUDE "demo_eenHart.adl"
 
 
 ENDCONTEXT
